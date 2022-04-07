@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-export default function ProductCreate() {
+const ProductCreate = () => {
     const [productTitle, setProductTitle] = useState('');
     const [productDescription, setProductDescription] = useState('');
     const [productPrice, setProductPrice] = useState('');
@@ -86,3 +86,5 @@ export default function ProductCreate() {
         </div>
     )
 }
+
+export default ProductCreate;
