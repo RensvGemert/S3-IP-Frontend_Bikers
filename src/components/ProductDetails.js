@@ -7,14 +7,13 @@ const ProductDetails = () => {
     const { id } = useParams()
     const [product, setProduct] = useState([]);
 
-
     useEffect(() => {
         fetch(`http://localhost:8080/api/products/details/${id}`)
             .then(res => res.json())
             .then(json => {
                 setProduct(json)
             })
-    }, [`http://localhost:8080/api/products/details/${id}`]);
+    }, []);
 
     if (product) {
         return (
