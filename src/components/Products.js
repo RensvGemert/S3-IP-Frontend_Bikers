@@ -5,6 +5,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import EditIcon from '@mui/icons-material/Edit';
+import InfoIcon from '@mui/icons-material/Info';
 import '../index.css';
 
 const Products = () => {
@@ -24,35 +27,38 @@ const Products = () => {
     <>
       <Button href="/product/create">Add Product</Button>
       <div className='grid'>
-      {
-      productItems.map(product => (  
-        <div key={product.productId}>   
-        <Card sx={{ maxWidth: 400, margin: 10 }}>
-          <CardActions style={{ textAlign: 'center', justifyContent: 'center' }}>
-            <Button href={`/product/update/${product.productId}`} style={{ color: 'black' }} size="small">Edit</Button>
-            <Button href={`/product/delete/${product.productId}`} style={{ color: 'red' }} size="small">Delete</Button>
-          </CardActions>
-          <CardMedia
-            component="img"
-            image={product.productImageUrl}
-            alt=""
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-            {product.productTitle}
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-            {product.productPrice}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Add to Cart</Button>
-            <Button href={`/product/details/${product.productId}`} size="small">Details</Button>
-          </CardActions>
-        </Card>
-          </div>
+        {
+          productItems.map(product => (
+            <div key={product.productId}>
+              <Card sx={{ maxWidth: 400, margin: 10, margin: '40px' }}>
+                
+                <CardActions style={{justifyContent: 'center'}}>
+                  <Button href={`/product/details/${product.productId}`} size="small">Info</Button>
+                  <Button href={`/product/update/${product.productId}`} size="small"><EditIcon /></Button>
+                  <Button href={`/product/delete/${product.productId}`} style={{color: 'red'}} size="small"><RemoveCircleOutlineIcon /></Button>
+                </CardActions>
+
+                <CardMedia
+                  component="img"
+                  image={product.productImageUrl}
+                  alt=""
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div" style={{height: 100}}>
+                    {product.productTitle}
+                  </Typography>
+
+                  <Typography variant="body3" color="text.secondary">
+                    {product.productPrice}
+                  </Typography>
+                </CardContent>
+                <CardActions style={{ textAlign: 'center', justifyContent: 'center' }}>
+                  <Button size="small">Add to Cart</Button>
+                </CardActions>
+              </Card>
+            </div>
           ))
-          }
+        }
       </div>
     </>
   );

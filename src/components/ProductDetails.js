@@ -20,24 +20,23 @@ const ProductDetails = () => {
             <div className="gridDetails">
                 {
                     <div className='details-left'>
-                    <div key={product.productId}>
-                        <img src={product.productImageUrl} className='product-image' alt=''></img>
-                        <h1 className='content'> {product.productTitle} </h1>
-                    </div>
+                        <div key={product.productId}>
+                            <img src={product.productImageUrl} className='product-image' alt=''></img>
+                        </div>
                     </div>
                 }
                 {
                     <div className='details-right'>
-                    <div style={{ backgroundColor: '#f0f0f0', alignSelf: 'start' }}>
-                        <h1>Description</h1>
-                        <hr />
-                        <p className='descriptiontext'> {product.productDescription} </p>
+                        <h1 className='content'> {product.productTitle} </h1>
+                        <div style={{ backgroundColor: '#EEF1F3', alignSelf: 'start' }}>
+                            <h2>Description</h2>
+                            <p className='descriptiontext'> {product.productDescription} </p>
 
-                        <h1>Price</h1>
-                        <hr />
-                        <p className='descriptiontext'>{product.productPrice}</p>
-                        <Button>Add To Cart</Button>
-                    </div>
+                            <h2>Price</h2>
+                            <hr />
+                            <p className='descriptiontext'>{product.productPrice}</p>
+                            <Button>Add To Cart</Button>
+                        </div>
                     </div>
                 }
             </div>

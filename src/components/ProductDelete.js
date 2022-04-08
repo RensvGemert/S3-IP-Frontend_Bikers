@@ -14,7 +14,7 @@ const ProductDelete = () => {
     return (
         <>
             <h1>Are you sure?</h1>
-            <Button onClick={deleteProduct}>Delete</Button>
+            <Button onClick={deleteProduct}  style={{ color: 'red' }} >Delete</Button>
             <Button href="/products">Cancel</Button>
         </>
     );

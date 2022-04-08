@@ -11,7 +11,7 @@ export default function Header() {
   return (
     <Box>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{backgroundColor: '#5c785a'}}>
           <IconButton
             size="large"
             edge="start"
