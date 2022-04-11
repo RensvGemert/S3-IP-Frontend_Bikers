@@ -31,7 +31,7 @@ const Products = () => {
           {
             productItems.map(product => (
               <div key={product.productId}>
-                <Card sx={{ maxWidth: 400, margin: 10, margin: '40px' }}>
+                <Card sx={{ maxWidth: 400, margin: '50px' }}>
 
                   <CardActions style={{ justifyContent: 'center' }}>
                     <Button href={`/product/details/${product.productId}`} size="small">Info</Button>
@@ -70,7 +70,7 @@ const Products = () => {
         {
           productItems.map(product => (
             <div key={product.productId}>
-              <Card sx={{ maxWidth: 400, margin: 10, margin: '40px' }}>
+              <Card sx={{ maxWidth: 400, margin: '50px' }}>
 
                 <CardActions style={{ justifyContent: 'center' }}>
                   <Button href={`/product/details/${product.productId}`} size="small">Info</Button>
