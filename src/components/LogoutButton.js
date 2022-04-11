@@ -8,7 +8,7 @@ const LogoutButton = () => {
     return (
         isAuthenticated && (
             <>
-                <Button onClick={() => logout()} style={{color: 'white'}} href='/'>Logout</Button>
+                <Button onClick={() => logout()} style={{color: 'white'}} href='/products'>Logout</Button>
             </>
         )
     )

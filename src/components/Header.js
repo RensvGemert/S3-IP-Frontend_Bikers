@@ -17,7 +17,7 @@ export default function Header() {
     <Box>
       <AppBar position="static">
         <Toolbar style={{backgroundColor: '#5c785a'}}>
-          <Typography style={{textTransform: 'uppercase', paddingRight: '30px'}}>Bikers</Typography>
+          <Typography style={{textTransform: 'uppercase', paddingRight: '30px'}} href='/'>Bikers</Typography>
           <Button color='inherit' href='/products'>Products</Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>       
           </Typography>        
