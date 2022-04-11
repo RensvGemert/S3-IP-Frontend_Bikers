@@ -6,8 +6,7 @@ import ProductDetails from './ProductDetails';
 import ProductDelete from './ProductDelete';
 import ProductUpdate from './ProductUpdate';
 import Products from './Products';
-import SignIn from './SignIn';
-import SignUp from './SignUp';
+import Profile from './Profile';
 
 function Navigation() {
     return (
@@ -19,9 +18,8 @@ function Navigation() {
                     <Route path='/product/details/:id' exact element={ <ProductDetails/>} /> 
                     <Route path='/product/create' exact element={<ProductCreate />} />
                     <Route path='/product/delete/:id' exact element={<ProductDelete />} />
-                    <Route path='/product/update/:id' exact element={<ProductUpdate />} />                         
-                    <Route path='/signin' element={<SignIn />} />
-                    <Route path='/signup' element={<SignUp />} />
+                    <Route path='/product/update/:id' exact element={<ProductUpdate />} />         
+                    <Route path='/profile' exact element={<Profile />} />                   
                 </Routes>
             </Router>
         </div>
