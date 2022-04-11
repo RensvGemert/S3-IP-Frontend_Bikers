@@ -16,9 +16,11 @@ function Home() {
     }
 
     if(!isAuthenticated){
+        return (
         <>
             <h1>Welcome</h1>
         </>
+        )
     }
 }
 
