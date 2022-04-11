@@ -13,7 +13,7 @@ const ProductDetails = () => {
             .then(json => {
                 setProduct(json)
             })
-    }, []);
+    });
 
     if (product) {
         return (

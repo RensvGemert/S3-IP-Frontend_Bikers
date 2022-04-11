@@ -10,7 +10,7 @@ const Profile = () => {
             <>
                 <ul>
                     <h1>Profile</h1>
-                    <li><img src={user.picture} /></li>
+                    <li><img src={user.picture} alt='' /></li>
                     <li>{user.name}</li>
                     <li>{user.email}</li>
                 </ul>
