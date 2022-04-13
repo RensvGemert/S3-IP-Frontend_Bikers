@@ -10,7 +10,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 import MenuListComposition from './MenuListComposition';
 
 export default function Header() {
-  const { user, isAuthenticated } = useAuth0();
+  const { isAuthenticated } = useAuth0();
   const { isLoading } = useAuth0();
 
   if (isLoading) {

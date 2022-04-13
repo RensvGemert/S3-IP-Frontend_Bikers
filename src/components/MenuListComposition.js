@@ -9,7 +9,6 @@ import MenuList from '@mui/material/MenuList';
 import Stack from '@mui/material/Stack';
 import LogoutButton from './LogoutButton';
 import LoginButton from './LoginButton';
-import Profile from './Profile';
 import { useAuth0 } from '@auth0/auth0-react';
 
 export default function MenuListComposition() {
