@@ -10,9 +10,11 @@ import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import EditIcon from '@mui/icons-material/Edit';
 import '../index.css';
 import { useAuth0 } from '@auth0/auth0-react';
+import CircularProgress from '@mui/material/CircularProgress';
 
 const Products = () => {
 
+  const { isLoading } = useAuth0();
   const [productItems, setProductItems] = useState([]);
   const { user, isAuthenticated } = useAuth0();
 
@@ -23,6 +25,15 @@ const Products = () => {
         setProductItems(json)
       });
   }, []);
+
+
+  if (isLoading) {
+    return (
+      <div style={{ fontSize: '20px', textAlign: 'center', justifyContent: 'center', paddingTop: '40vh' }}>
+        <CircularProgress color='success' />
+      </div>
+    )
+  }
 
   if (isAuthenticated && user.email === 'renscodetest@gmail.com') {
     return (

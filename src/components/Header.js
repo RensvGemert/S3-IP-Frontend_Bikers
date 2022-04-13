@@ -7,10 +7,27 @@ import Button from '@mui/material/Button';
 import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import { useAuth0 } from '@auth0/auth0-react';
+import MenuListComposition from './MenuListComposition';
 
 export default function Header() {
   const { user, isAuthenticated } = useAuth0();
+  const { isLoading } = useAuth0();
 
+  if (isLoading) {
+    return (
+      <Box>
+      <AppBar position="static">
+        <Toolbar style={{backgroundColor: '#5c785a'}}>
+          <Typography style={{textTransform: 'uppercase', paddingRight: '30px'}} href='/'>Bikers</Typography>
+          <Button color='inherit' href='/products'>Products</Button>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>       
+          </Typography>        
+          <Button href='/profile' style={{fontSize: '16px', color: 'black', textTransform: 'lowercase'}}></Button> 
+        </Toolbar>
+      </AppBar>
+    </Box>
+    )
+  }
 
   if(isAuthenticated) {
   return (
@@ -20,9 +37,8 @@ export default function Header() {
           <Typography style={{textTransform: 'uppercase', paddingRight: '30px'}} href='/'>Bikers</Typography>
           <Button color='inherit' href='/products'>Products</Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>       
-          </Typography>        
-          <Button href='/profile' style={{fontSize: '16px', color: 'black', textTransform: 'lowercase'}}>{ user.email }</Button> 
-          <Button color="inherit"><LoginButton/> <LogoutButton /></Button>
+          </Typography>             
+          <Button><MenuListComposition/></Button>
         </Toolbar>
       </AppBar>
     </Box>
