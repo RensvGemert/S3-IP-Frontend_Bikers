@@ -45,7 +45,7 @@ const ProductDetails = () => {
 
     return (
         <div>
-            <h1>Product could not be found!</h1>
+            <h1>Product could not be found! </h1>
         </div>
     )
 }
