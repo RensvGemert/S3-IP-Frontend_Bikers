@@ -59,7 +59,7 @@ export default function ProfileDrownDown() {
                     aria-haspopup="true"
                     onClick={handleToggle}
                 >
-                    <img src={user.picture} alt='' style={{ borderRadius: '100px', width: '40px' }} />
+                    <p style={{fontSize: '12px', color: 'black'}}>{user.email} </p>
                 </Button>
                 <Popper
                     open={open}
