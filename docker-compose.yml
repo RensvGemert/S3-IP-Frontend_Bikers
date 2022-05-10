@@ -12,23 +12,25 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - my-db:/var/lib/mysql
+
   frontend:
     image: ghcr.io/rensvgemert/s3-ip-frontend_bikers:master
     restart: always
     ports: 
       - $REACT_LOCAL_PORT:$REACT_DOCKER_PORT
+
   backend: 
+    image: ghcr.io/rensvgemert/s3-ip-backend:master
+    ports:
+      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     networks:
       - bikers-network
     depends_on:
       - bikersdb
-    image: ghcr.io/rensvgemert/s3-ip-backend:master
     restart: always
-    ports:
-      - $SPRING_LOCAL_PORT:$SPRING_DOCKER_PORT
     environment:
       SPRING_APPLICATION_JSON: '{
-        "spring.datasource.url"  : "jdbc:mysql://mysqldb:$MYSQLDB_DOCKER_PORT/bikersdb?useSSL=false",
+        "spring.datasource.url"  : "jdbc:mysql://bikersdb/bikersdb",
         "spring.datasource.username" : "$MYSQLDB_USER",
         "spring.datasource.password" : "$MYSQLDB_ROOT_PASSWORD",
         "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
