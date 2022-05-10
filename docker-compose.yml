@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  db:
+  bikers-db:
     image: mysql
     restart: always
     environment:
@@ -31,7 +31,9 @@ services:
     ports: 
       - '8080:8080'
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://docker-mysql:3306/database?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://bikers-db:3306/bikersdb?autoReconnect=true&useSSL=false
+    depends_on:
+       - bikers-db
 # Names our volume
 volumes:
   my-db:
