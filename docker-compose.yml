@@ -1,6 +1,6 @@
 version: '3.3'
 services:
-  db:
+  bikersdb:
     image: mysql
     restart: always
     environment:
@@ -31,7 +31,7 @@ services:
     ports: 
       - '8080:8080'
     depends_on:
-      - db
+      - bikersdb
 # Names our volume
 volumes:
   my-db:
