@@ -30,8 +30,6 @@ services:
     restart: always
     ports: 
       - '8080:8080'
-    environment: 
-      - spring.datasource.url= "jdbc:mysql://db:3306/bikersdb"
     depends_on:
       - db
 # Names our volume
