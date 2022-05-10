@@ -6,30 +6,30 @@ services:
     environment:
       MYSQL_DATABASE: 'bikersdb'
       # So you don't have to use root, but you can if you like
-      MYSQL_USER: 'root'
+      # MYSQL_USER: 'root'
       # You can use whatever password you like
       MYSQL_PASSWORD: 'my-pw'
       # Password for root access
-      MYSQL_ROOT_PASSWORD: 'my-pw'
+      MYSQL_ROOT_PASSWORD: ''
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
-    expose:
-      # Opens port 3306 on the container
-      - '3306'
+    # expose:
+    #   # Opens port 3306 on the container
+    #   - '3306'
       # Where our data will be persisted
     volumes:
       - my-db:/var/lib/mysql
   frontend:
-    image: ghcr.io/rensvgemert/s3-ip-frontend_bikers
+    image: ghcr.io/rensvgemert/s3-ip-frontend_bikers:master
     restart: always
     ports: 
       - '3000:3000'
   backend: 
-    image: ghcr.io/rensvgemert/s3-ip-backend
+    image: ghcr.io/rensvgemert/s3-ip-backend:master
     restart: always
     ports: 
-      - '8080:8080'
+      - '8080:80'
 # Names our volume
 volumes:
   my-db:
