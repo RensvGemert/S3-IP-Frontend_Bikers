@@ -30,10 +30,6 @@ services:
     restart: always
     ports: 
       - '8080:8080'
-    environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://bikers-db:3306/bikersdb?autoReconnect=true&useSSL=false
-    depends_on:
-       - bikers-db
 # Names our volume
 volumes:
   my-db:
