@@ -31,7 +31,7 @@ const Products = () => {
 
 
   // if user is authenticated and admin
-  if (isAuthenticated && user.email === 'renscodetest@gmail.com') {
+  if (isAuthenticated && user.email === 's3codetest@gmail.com') {
     return (
       <>
         <Button href="/product/create">Add Product</Button>
