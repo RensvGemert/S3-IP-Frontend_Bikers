@@ -4,46 +4,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import LoginButton from './LoginButton';
-import LogoutButton from './LogoutButton';
-import { useAuth0 } from '@auth0/auth0-react';
-import ProfileDropDown from './ProfileDropDown';
 
 export default function Header() {
-  const { isAuthenticated } = useAuth0();
-  const { isLoading } = useAuth0();
-
-  if (isLoading) {
-    return (
-      <Box>
-        <AppBar position="static">
-          <Toolbar style={{ backgroundColor: '#5c785a' }}>
-            <Typography style={{ textTransform: 'uppercase', paddingRight: '30px' }} href='/'>Bikers</Typography>
-            <Button color='inherit' href='/products'>Products</Button>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            </Typography>
-            <Button href='/profile' style={{ fontSize: '16px', color: 'black', textTransform: 'lowercase' }}></Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    )
-  }
-
-  if (isAuthenticated) {
-    return (
-      <Box>
-        <AppBar position="static">
-          <Toolbar style={{ backgroundColor: '#5c785a' }}>
-            <Typography style={{ textTransform: 'uppercase', paddingRight: '30px' }} href='/'>Bikers</Typography>
-            <Button color='inherit' href='/products'>Products</Button>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            </Typography>
-            <Button><ProfileDropDown /></Button>
-          </Toolbar>
-        </AppBar>
-      </Box>
-    )
-  }
 
   return (
     <Box>
@@ -53,7 +15,11 @@ export default function Header() {
           <Button color='inherit' href='/products'>Products</Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Button color="inherit"><LoginButton /> <LogoutButton /></Button>
+          <Button color='inherit' href='/signup'>Signup</Button>
+          <Button color='inherit' href='/login'>Login</Button>
+          <Button color='inherit' href='/logout'>Logout</Button>
+          <Button color='inherit' href='/profile'>Profile</Button>
+
         </Toolbar>
       </AppBar>
     </Box>
