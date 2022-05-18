@@ -16,7 +16,7 @@ export default function Header() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
           <Button color='inherit' href='/signup'>Signup</Button>
-          <Button color='inherit' href='/login'>Login</Button>
+          <Button color='inherit' href='/signin'>Signin</Button>
           <Button color='inherit' href='/logout'>Logout</Button>
           <Button color='inherit' href='/profile'>Profile</Button>
 
