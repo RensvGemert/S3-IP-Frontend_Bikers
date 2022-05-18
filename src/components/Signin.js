@@ -1,21 +1,39 @@
 import React, { useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
+// import axios from 'axios';
 import { Link } from 'react-router-dom';
 
 const Signin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    
-    const login = () => { 
-      axios.post('http://localhost:8080/api/users/signin', {
-      email,
-      password
-    }).then()};
 
+    
+
+        const login = async () => { 
+            const request = new Request('http://localhost:8080/api/users/signin', {
+                method: 'POST',
+                body: JSON.stringify({ email, password }),
+                headers: new Headers({ 'Content-Type': 'application/json' }),
+        })
+
+        const response = await fetch(request);
+        const data = await response.json();    
+
+        localStorage.setItem('userId', data.userId);
+        localStorage.setItem('isAdmin', data.is_admin);
+    }
+
+    const handleSubmit = event => {
+        // 👇️ prevent page refresh
+        event.preventDefault();
+      };
+
+   
+      
+    
     return (
         <div className='ProductCreate'>
-            <Form className='rounded p-5 p-5'>
+            <Form className='rounded p-5 p-5' onSubmit={handleSubmit}>
                 <h1>Signin</h1>
                 <Form.Group className="mb-3" controlId="formBasicDescription">
                 <Form.Label>Email:</Form.Label>
