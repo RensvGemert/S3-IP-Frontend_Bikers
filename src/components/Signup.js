@@ -23,7 +23,7 @@ const SignUp = () => {
         <div className='ProductCreate'>
             <Form className='rounded p-5 p-5'>
                 <h1>Signup</h1>
-                <Form.Group className="mb-3" controlId="formBasicTitle">
+                <Form.Group className="mb-3" controlId="formBasicName">
                 <Form.Label>Name:</Form.Label>               
                 <Form.Control 
                     type="text" 
@@ -36,7 +36,7 @@ const SignUp = () => {
                 />
                 </Form.Group>
             
-                <Form.Group className="mb-3" controlId="formBasicDescription">
+                <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email:</Form.Label>
                 <Form.Control 
                     type="text" 
@@ -49,7 +49,7 @@ const SignUp = () => {
                 />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicPrice">
+                <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password:</Form.Label>
                 <Form.Control 
                     type='password'
@@ -62,7 +62,7 @@ const SignUp = () => {
                 />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicImageUrl">
+                <Form.Group className="mb-3" controlId="formBasicAdmin">
                 <Form.Label>Admin?</Form.Label>
                 <Form.Control 
                     type="checkbox" 
