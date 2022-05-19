@@ -15,13 +15,15 @@ services:
       - my-db:/var/lib/mysql
       
   phpmyadmin:
+    depends_on:
+      - bikersdb
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin:latest
     restart: always
-    environment:
-      - PMA_ARBITRARY=1
     ports:
       - "8081:80"
+    environment:
+      PMA_HOST: bikersdb
 
   frontend:
     container_name: frontend
