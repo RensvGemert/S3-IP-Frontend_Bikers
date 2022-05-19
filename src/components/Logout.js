@@ -1,10 +1,8 @@
-import React from 'react'
-
 function Logout() {
-
-  return (
-    <h1>Logout</h1>
-  )
+    localStorage.clear();
+    return (
+        <h1>Successfully logged out</h1>
+    );
 }
 
-export default Logout
+export default Logout;

@@ -7,6 +7,10 @@ import Button from '@mui/material/Button';
 
 export default function Header() {
 
+  const userId = localStorage.getItem('userId');
+  const userEmail = localStorage.getItem('email');
+
+  if(userId !== null){
   return (
     <Box>
       <AppBar position="static">
@@ -15,13 +19,32 @@ export default function Header() {
           <Button color='inherit' href='/products'>Products</Button>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
           </Typography>
-          <Button color='inherit' href='/signup'>Signup</Button>
-          <Button color='inherit' href='/login'>Login</Button>
-          <Button color='inherit' href='/logout'>Logout</Button>
-          <Button color='inherit' href='/profile'>Profile</Button>
+
+          <Button style={{ color: 'black', textTransform: 'lowercase', fontSize: '16px' }}>{userEmail}</Button>
+          <Button color='inherit' href='/logout' >Logout</Button>          
 
         </Toolbar>
       </AppBar>
     </Box>
   );
+ }
+
+ if(userId === null){
+ return (
+  <Box>
+    <AppBar position="static">
+      <Toolbar style={{ backgroundColor: '#5c785a' }}>
+        <Typography style={{ textTransform: 'uppercase', paddingRight: '30px' }}>Bikers</Typography>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+        </Typography>
+
+        <Button color='inherit' href='/signup'>Signup</Button>
+        <Button color='inherit' href='/signin'>Signin</Button>
+
+      </Toolbar>
+    </AppBar>
+  </Box>
+);
+}
+
 }
