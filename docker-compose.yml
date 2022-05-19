@@ -1,6 +1,6 @@
 version: '3.3'
 networks:
-  backend:
+  bikers-network:
     driver: bridge
 services:
   bikersdb:
@@ -17,7 +17,7 @@ services:
     volumes:
       - my-db:/var/lib/mysql
     networks:
-      - backend
+      - bikers-network
       
   phpmyadmin:
     depends_on:
@@ -30,7 +30,7 @@ services:
     environment:
       PMA_HOST: bikersdb
     networks:
-      - backend
+      - bikers-network
 
   frontend:
     container_name: frontend
