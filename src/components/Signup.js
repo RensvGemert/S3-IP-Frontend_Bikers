@@ -7,17 +7,15 @@ const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [is_admin, setAdmin] = useState('');
 
     const createUser = () => {
         axios.post(`http://localhost:8080/api/users/signup`, {
             name,
             email,
             password,
-            is_admin
+            is_admin: false
         })
     }
-
 
     return (
         <div className='ProductCreate'>
@@ -62,7 +60,7 @@ const SignUp = () => {
                 />
                 </Form.Group>
 
-                <Form.Group className="mb-3" controlId="formBasicAdmin">
+                {/* <Form.Group className="mb-3" controlId="formBasicAdmin">
                 <Form.Label>Admin?</Form.Label>
                 <Form.Control 
                     type="checkbox" 
@@ -71,7 +69,7 @@ const SignUp = () => {
                         setAdmin(1);
                     }}
                 />
-                </Form.Group>
+                </Form.Group> */}
 
                 <Button 
                     variant='success'

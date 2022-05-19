@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import '../index.css';
 import ProductCardCrud from './ProductCardCrud';
-// import ProductCard from './ProductCard';
+import ProductCard from './ProductCard';
 // import CircularProgress from '@mui/material/CircularProgress';
 
 const Products = () => {
@@ -18,6 +18,7 @@ const Products = () => {
   }, []);
 
   // if admin
+  if(localStorage.getItem('isAdmin', true)){
     return (
       <>
         <Button href="/product/create">Add Product</Button>
@@ -31,22 +32,20 @@ const Products = () => {
         </div>
       </>
     );
+  } 
 
+  return (
+    <>
+      <div className='grid'>
+        {
+          productItems.map(product => {
+            return <ProductCard key={product.productId} product={product}/>
+          }         
+          )
+        }
+      </div>
+    </>
+  );
+ }
 
-  // // if regular user
-  // return (
-  //   <>
-  //     <div className='grid'>
-  //       {
-  //         productItems.map(product => {
-  //           return <ProductCard key={product.productId} product={product}/>
-  //         }         
-  //         )
-  //       }
-  //     </div>
-  //   </>
-  // );
-}
-
-
-export default Products;
+export default Products
