@@ -13,7 +13,7 @@ services:
     volumes:
       - my-db:/var/lib/mysql
       
-    phpmyadmin:
+  phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     restart: always
     environment:
