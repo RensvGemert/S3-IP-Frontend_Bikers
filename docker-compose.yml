@@ -16,8 +16,6 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - my-db:/var/lib/mysql
-    networks:
-      - bikers-network
       
   phpmyadmin:
     depends_on:
@@ -58,8 +56,6 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"
         }'
 # Names our volume
+
 volumes:
   my-db:
-
-networks:
-  bikers-network: 
