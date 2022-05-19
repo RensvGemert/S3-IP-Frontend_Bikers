@@ -1,36 +1,43 @@
 import React, { useState} from 'react';
 import { Form, Button } from 'react-bootstrap';
-// import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Signin = () => {
+
+    const redirect = useNavigate();
+    const [error,setError]=useState();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    
 
         const login = async () => { 
             const request = new Request('http://localhost:8080/api/users/signin', {
                 method: 'POST',
                 body: JSON.stringify({ email, password }),
                 headers: new Headers({ 'Content-Type': 'application/json' }),
-        })
+        },
+            setError('Invalid username or password'))
 
         const response = await fetch(request);
+
+        if (response.status < 200 || response.status >= 300) {
+            console.log(error);
+        }
+
         const data = await response.json();    
 
+        if(email !== "" && password !== "" && response.status === 200){
         localStorage.setItem('userId', data.userId);
         localStorage.setItem('isAdmin', data.is_admin);
-    }
+        redirect('/products');
+        }
+        }
 
     const handleSubmit = event => {
         // 👇️ prevent page refresh
         event.preventDefault();
       };
 
-   
-      
-    
     return (
         <div className='ProductCreate'>
             <Form className='rounded p-5 p-5' onSubmit={handleSubmit}>
@@ -39,7 +46,6 @@ const Signin = () => {
                 <Form.Label>Email:</Form.Label>
                 <Form.Control 
                     type="text" 
-                    placeholder="email" 
                     autoComplete='off'
                     required
                     onChange={(event) => {
@@ -52,7 +58,6 @@ const Signin = () => {
                 <Form.Label>Password:</Form.Label>
                 <Form.Control 
                     type='password'
-                    placeholder='password'
                     autoComplete='off'
                     required
                     onChange={(event) => {
