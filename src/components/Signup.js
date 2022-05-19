@@ -1,9 +1,86 @@
-import React from 'react'
+import React, { useState } from 'react';
+import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';
+import { Link } from 'react-router-dom';
 
-const Signup = () => {
-  return (
-    <h1>SignUp</h1>
-  )
+const SignUp = () => {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const createUser = () => {
+        axios.post(`http://localhost:8080/api/users/signup`, {
+            name,
+            email,
+            password,
+            is_admin: false
+        })
+    }
+
+    return (
+        <div className='ProductCreate'>
+            <Form className='rounded p-5 p-5'>
+                <h1>Signup</h1>
+                <Form.Group className="mb-3" controlId="formBasicName">
+                <Form.Label>Name:</Form.Label>               
+                <Form.Control 
+                    type="text" 
+                    placeholder="name"
+                    autoComplete='off'
+                    required
+                    onChange={(event) => {
+                        setName(event.target.value);
+                    }}
+                />
+                </Form.Group>
+            
+                <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email:</Form.Label>
+                <Form.Control 
+                    type="text" 
+                    placeholder="email" 
+                    autoComplete='off'
+                    required
+                    onChange={(event) => {
+                        setEmail(event.target.value);
+                    }}                    
+                />
+                </Form.Group>
+
+                <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Password:</Form.Label>
+                <Form.Control 
+                    type='password'
+                    placeholder='password'
+                    autoComplete='off'
+                    required
+                    onChange={(event) => {
+                        setPassword(event.target.value);
+                    }}
+                />
+                </Form.Group>
+
+                {/* <Form.Group className="mb-3" controlId="formBasicAdmin">
+                <Form.Label>Admin?</Form.Label>
+                <Form.Control 
+                    type="checkbox" 
+                    autoComplete='off'
+                    onChange={(event) => {
+                        setAdmin(1);
+                    }}
+                />
+                </Form.Group> */}
+
+                <Button 
+                    variant='success'
+                    onClick={createUser}
+                    type="submit">Signup            
+                </Button>
+
+                <Link to="/products" style={{marginLeft: 12}}className="btn btn-danger">Cancel</Link>
+            </Form>
+        </div>
+    )
 }
 
-export default Signup
+export default SignUp;

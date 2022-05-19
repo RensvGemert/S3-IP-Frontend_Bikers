@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import '../index.css';
 import ProductCardCrud from './ProductCardCrud';
-// import ProductCard from './ProductCard';
+import ProductCard from './ProductCard';
 // import CircularProgress from '@mui/material/CircularProgress';
 
 const Products = () => {
 
+  const admin = localStorage.getItem('isAdmin');
   const [productItems, setProductItems] = useState([]);
 
   useEffect(() => {
@@ -17,35 +18,36 @@ const Products = () => {
       });
   }, []);
 
-  // if admin
-    return (
-      <>
-        <Button href="/product/create">Add Product</Button>
-        <div className='grid'>
-          {
-            productItems.map(product => {
-              return <ProductCardCrud key={product.productId} product={product} />
-            }
-            )
+
+
+  if(admin !== "true"){
+  return (
+      <div className='grid'>
+        {
+          productItems.map(product => {
+            return <ProductCard key={product.productId} product={product}/>
+          }         
+          )
+        }
+      </div>
+  );
+ } 
+ 
+ else {
+  return (
+    <>
+      <Button href="/product/create">Add Product</Button>
+      <div className='grid'>
+        {
+          productItems.map(product => {
+            return <ProductCardCrud key={product.productId} product={product} />
           }
-        </div>
-      </>
-    );
-
-
-  // // if regular user
-  // return (
-  //   <>
-  //     <div className='grid'>
-  //       {
-  //         productItems.map(product => {
-  //           return <ProductCard key={product.productId} product={product}/>
-  //         }         
-  //         )
-  //       }
-  //     </div>
-  //   </>
-  // );
+          )
+        }
+      </div>
+    </>
+  );
+ }
 }
 
 
