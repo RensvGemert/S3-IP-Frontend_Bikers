@@ -17,25 +17,10 @@ const Products = () => {
       });
   }, []);
 
-  // if admin
-  if(localStorage.getItem('isAdmin', true)){
-    return (
-      <>
-        <Button href="/product/create">Add Product</Button>
-        <div className='grid'>
-          {
-            productItems.map(product => {
-              return <ProductCardCrud key={product.productId} product={product} />
-            }
-            )
-          }
-        </div>
-      </>
-    );
-  } 
+  const admin = localStorage.getItem('isAdmin');
 
+  if(admin !== "true"){
   return (
-    <>
       <div className='grid'>
         {
           productItems.map(product => {
@@ -44,8 +29,25 @@ const Products = () => {
           )
         }
       </div>
+  );
+ } 
+ 
+ else {
+  return (
+    <>
+      <Button href="/product/create">Add Product</Button>
+      <div className='grid'>
+        {
+          productItems.map(product => {
+            return <ProductCardCrud key={product.productId} product={product} />
+          }
+          )
+        }
+      </div>
     </>
   );
  }
+}
 
-export default Products
+
+export default Products;
