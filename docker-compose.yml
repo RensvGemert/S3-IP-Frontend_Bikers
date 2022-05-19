@@ -1,4 +1,7 @@
 version: '3.3'
+networks:
+  backend:
+    driver: bridge
 services:
   bikersdb:
     container_name: bikersdb
@@ -13,6 +16,8 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - my-db:/var/lib/mysql
+    networks:
+      - backend
       
   phpmyadmin:
     depends_on:
@@ -24,6 +29,8 @@ services:
       - "8081:80"
     environment:
       PMA_HOST: bikersdb
+    networks:
+      - backend
 
   frontend:
     container_name: frontend
