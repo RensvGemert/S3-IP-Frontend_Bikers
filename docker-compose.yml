@@ -12,6 +12,16 @@ services:
       - $MYSQLDB_LOCAL_PORT:$MYSQLDB_DOCKER_PORT
     volumes:
       - my-db:/var/lib/mysql
+      
+    phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    restart: always
+    environment:
+      PMA_HOST: bikersdb
+      PMA_USER: root
+      PMA_PASSWORD: my-pw
+    ports:
+      - "8080:80"
 
   frontend:
     image: ghcr.io/rensvgemert/s3-ip-frontend_bikers:master
