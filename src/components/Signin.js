@@ -29,6 +29,7 @@ const Signin = () => {
         if(email !== "" && password !== "" && response.status === 200){
         localStorage.setItem('userId', data.userId);
         localStorage.setItem('isAdmin', data.is_admin);
+        localStorage.setItem('email', email);
         redirect('/products');
         }
         }

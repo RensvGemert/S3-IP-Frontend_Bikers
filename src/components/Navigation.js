@@ -6,7 +6,6 @@ import ProductDetails from './ProductDetails';
 import ProductDelete from './ProductDelete';
 import ProductUpdate from './ProductUpdate';
 import Products from './Products';
-import Profile from './Profile';
 import Signup from './Signup';
 import Logout from './Logout';
 import Signin from './Signin';
@@ -24,8 +23,7 @@ function Navigation() {
                     <Route path='/product/update/:id' exact element={<ProductUpdate />} />
 
                     <Route path='/signin' exact element={<Signin />} />         
-                    <Route path='/signup' exact element={<Signup />} />    
-                    <Route path='/profile' exact element={<Profile />} />   
+                    <Route path='/signup' exact element={<Signup />} />     
                     <Route path='/logout' exact element={<Logout />} />
                 </Routes>
             </Router>

@@ -7,6 +7,7 @@ import ProductCard from './ProductCard';
 
 const Products = () => {
 
+  const admin = localStorage.getItem('isAdmin');
   const [productItems, setProductItems] = useState([]);
 
   useEffect(() => {
@@ -17,7 +18,7 @@ const Products = () => {
       });
   }, []);
 
-  const admin = localStorage.getItem('isAdmin');
+
 
   if(admin !== "true"){
   return (
