@@ -3,7 +3,6 @@ import Button from '@mui/material/Button';
 import '../index.css';
 import ProductCardCrud from './ProductCardCrud';
 import ProductCard from './ProductCard';
-// import CircularProgress from '@mui/material/CircularProgress';
 
 const Products = () => {
 
@@ -17,8 +16,6 @@ const Products = () => {
         setProductItems(json)
       });
   }, []);
-
-
 
   if(admin !== "true"){
   return (
@@ -36,6 +33,7 @@ const Products = () => {
  else {
   return (
     <>
+    {console.log(productItems)}
       <Button href="/product/create">Add Product</Button>
       <div className='grid'>
         {
@@ -49,6 +47,5 @@ const Products = () => {
   );
  }
 }
-
 
 export default Products;
